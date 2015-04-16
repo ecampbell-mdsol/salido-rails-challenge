@@ -25,4 +25,4 @@ If you are using a Mac, you can consult this [tutorial](http://railsapps.github.
 
 1. Execute `rake -T` to view a list of Rake tasks.
 1. Run the unit tests by executing `rspec`.
-1. Start an instance of the Rails sever locally on port 3000 by executing `rails s`.  At this point, you can make an API call to the server and get a JSON response with Curl (for example: `curl http::/localhost:3000/products.json`), and/or browse to `http://localhost:3000`.
+1. Start an instance of the Rails sever locally on port 3000 by executing `rails s`.  At this point, you can make an API call to the server and get a JSON response with Curl (for example: `curl http::/localhost:3000/products.json`), and/or browse to [`http://localhost:3000`](http://localhost:3000).
