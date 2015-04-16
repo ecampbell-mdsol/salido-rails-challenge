@@ -11,12 +11,28 @@
     = f.text_field :name
   .field
     = f.label :type
-    = f.text_field :product_type
+    = f.select :product_type do
+      = options_for_select [['Wine'], ['Wine Set', 'WineSet'], ['Basket'], ['Glassware'], ['Accessory']]
+  .field
+    = f.label :description
+    = f.text_field :description
+  .field
+    = f.label 'Original ID'
+    = f.text_field :oid
+  .field
+    = f.label 'Minimum Price'
+    = f.text_field :price_min
+  .field
+    = f.label 'Maximum Price'
+    = f.text_field :price_max
   .field
     = f.label 'Retail Price'
     = f.text_field :price_retail
   .field
-    = f.label :description
-    = f.text_field :description
+    = f.label :url
+    = f.text_field :url
+  .field
+    = f.label :year
+    = f.text_field :year
   .actions
     = f.submit 'Save', class: 'btn btn-primary'
