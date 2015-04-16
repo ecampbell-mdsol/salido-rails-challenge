@@ -19,6 +19,7 @@ end
 
 # Project specific gems
 
+gem 'bootstrap-sass', '~> 3.3'
 gem 'figaro', '~> 1.1'
 gem 'haml-rails', '~> 0.9'
 gem 'responders', '~> 2.0'
