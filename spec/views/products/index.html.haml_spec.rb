@@ -5,13 +5,13 @@ RSpec.describe "products/index", type: :view do
     assign(:products, [
       Product.create!(
         :name => "Name",
-        :type => "Type",
+        :product_type => "Type",
         :price_retail => "Price Retail",
         :description => "Description"
       ),
       Product.create!(
         :name => "Name",
-        :type => "Type",
+        :product_type => "Type",
         :price_retail => "Price Retail",
         :description => "Description"
       )

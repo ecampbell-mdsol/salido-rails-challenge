@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   respond_to :html, except: :show
+  respond_to :json, except: :edit
 
   def index
     @products = Product.all
@@ -22,7 +23,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save!
+    @product.save
     respond_with(@product, location: products_url)
   end
 
