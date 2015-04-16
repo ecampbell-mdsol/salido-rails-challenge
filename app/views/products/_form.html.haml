@@ -11,12 +11,12 @@
     = f.text_field :name
   .field
     = f.label :type
-    = f.text_field :type
+    = f.text_field :product_type
   .field
-    = f.label :price_retail
+    = f.label 'Retail Price'
     = f.text_field :price_retail
   .field
     = f.label :description
     = f.text_field :description
   .actions
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

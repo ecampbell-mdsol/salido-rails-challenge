@@ -1,6 +1,6 @@
-%h1 Listing products
+%h1 Products List
 
-%table
+%table.table
   %thead
     %tr
       %th Name
@@ -9,19 +9,21 @@
       %th Description
       %th
       %th
-      %th
 
   %tbody
     - @products.each do |product|
       %tr
         %td= product.name
-        %td= product.type
+        %td= product.product_type
         %td= product.price_retail
         %td= product.description
-        %td= link_to 'Show', product
-        %td= link_to 'Edit', edit_product_path(product)
-        %td= link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td
+          = link_to edit_product_path(product) do
+            %span.glyphicon.glyphicon-pencil
+        %td
+          = link_to product, method: :delete, :data => { :confirm => 'Are you sure?' } do
+            %span.glyphicon.glyphicon-remove
 
 %br
 
-= link_to 'New Product', new_product_path
+= link_to 'New Product', new_product_path, class: 'btn btn-primary'
