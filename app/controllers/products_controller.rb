@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
+  respond_to :html, except: :show
 
   def index
     @products = Product.all
@@ -23,12 +23,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.save!
-    respond_with(@product)
+    respond_with(@product, location: products_url)
   end
 
   def update
     @product.update(product_params)
-    respond_with(@product)
+    respond_with(@product, location: products_url)
   end
 
   def destroy
@@ -36,12 +36,14 @@ class ProductsController < ApplicationController
     respond_with(@product)
   end
 
+  PERMITTED_ATTRIBUTES = %i(description name oid price_max price_min price_retail product_type url year)
+
   private
     def set_product
       @product = Product.find(params[:id])
     end
 
     def product_params
-      params.require(:product).permit(:name, :product_type, :price_retail, :description)
+      params.require(:product).permit(*PERMITTED_ATTRIBUTES)
     end
 end
