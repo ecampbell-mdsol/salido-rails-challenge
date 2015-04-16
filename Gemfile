@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Standard Rails Gems
-gem 'rails', '4.2'
+gem 'rails', '~> 4.2'
 
 gem 'coffee-rails', '~> 4.1'
 gem 'jquery-rails', '~> 4.0'
