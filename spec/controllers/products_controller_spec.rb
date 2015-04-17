@@ -50,6 +50,12 @@ RSpec.describe ProductsController, type: :controller do
       get :show, {id: product.to_param, format: 'json'}, valid_session
       expect(assigns(:product)).to eq(product)
     end
+
+    it 'responds with a JSON of the requested product' do
+      product = Product.create! valid_attributes
+      get :show, {id: product.to_param, format: 'json'}, valid_session
+      expect(JSON.parse(response.body).slice(*valid_attributes.keys)).to eq(valid_attributes)
+    end
   end
 
   describe '#new' do
