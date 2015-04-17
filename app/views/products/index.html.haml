@@ -6,9 +6,9 @@
   %thead
     %tr
       %th Name
+      %th Endeca ID
       %th Type
       %th Price Retail
-      %th Description
   %tbody
     - @products.each do |product|
       %tr
@@ -19,5 +19,5 @@
             %span.glyphicon.glyphicon-remove
           = product.name
         %td= product.product_type
+        %td= product.endeca_id
         %td= '$%.2f' % product.price_retail
-        %td= product.description
