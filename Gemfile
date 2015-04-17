@@ -22,6 +22,7 @@ end
 gem 'bootstrap-sass', '~> 3.3'
 gem 'figaro', '~> 1.1'
 gem 'haml-rails', '~> 0.9'
+gem 'jquery-datatables-rails', '~> 3.2'
 gem 'responders', '~> 2.0'
 
 group :development do
