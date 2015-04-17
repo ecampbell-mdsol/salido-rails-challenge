@@ -5,6 +5,7 @@ gem 'rails', '~> 4.2'
 
 gem 'coffee-rails', '~> 4.1'
 gem 'jquery-rails', '~> 4.0'
+gem 'jquery-turbolinks', '~> 2.1'
 gem 'mysql2', '~> 0.3'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
