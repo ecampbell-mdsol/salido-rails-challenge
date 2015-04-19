@@ -20,10 +20,12 @@ end
 
 # Project specific gems
 
+gem 'active_model_serializers', '~> 0.9'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'figaro', '~> 1.1'
 gem 'haml-rails', '~> 0.9'
 gem 'jquery-datatables-rails', '~> 3.2'
+gem 'kaminari', '~> 0.16'
 gem 'responders', '~> 2.0'
 
 group :development do
