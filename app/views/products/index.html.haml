@@ -2,7 +2,7 @@
   Products List
   .pull-right= link_to 'New Product', new_product_path, class: 'btn btn-success'
 
-%table#products
+%table#products{data: {source: products_path(format: :json)}}
   %thead
     %tr
       %th Name
@@ -10,14 +10,3 @@
       %th Type
       %th Price Retail
   %tbody
-    - @products.each do |product|
-      %tr
-        %td
-          = link_to edit_product_path(product) do
-            %span.glyphicon.glyphicon-pencil
-          = link_to product, method: :delete, data: {confirm: 'Are you sure?'} do
-            %span.glyphicon.glyphicon-remove
-          = product.name
-        %td= product.endeca_id
-        %td= product.product_type
-        %td= '$%.2f' % product.price_retail

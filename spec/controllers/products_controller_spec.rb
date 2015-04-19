@@ -37,10 +37,25 @@ RSpec.describe ProductsController, type: :controller do
   let(:valid_session) { {} }
 
   describe '#index' do
-    it 'assigns all products as @products' do
+    xit 'assigns all products as @products' do
       product = Product.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:products)).to eq([product])
+    end
+
+    context 'when request format is JSON' do
+      before do
+        FactoryGirl.create(:product)
+      end
+
+      xit 'returns a JSON representation of the products with meta info' do
+        get :index, {format: 'json'}, valid_session
+        expected_result = {
+          'meta' => {'total' => 1, 'returned' => 1},
+          'products' => Product.select(Product::PUBLIC_ATTRIBUTES).map(&:attributes)
+        }
+        expect(JSON.parse(response.body)).to eq(expected_result)
+      end
     end
   end
 
@@ -51,10 +66,10 @@ RSpec.describe ProductsController, type: :controller do
       expect(assigns(:product)).to eq(product)
     end
 
-    it 'responds with a JSON of the requested product' do
-      product = Product.create! valid_attributes
-      get :show, {id: product.to_param, format: 'json'}, valid_session
-      expect(JSON.parse(response.body).slice(*valid_attributes.keys)).to eq(valid_attributes)
+    xit 'responds with a JSON of the requested product' do
+      product = FactoryGirl.create(:product)
+      get :show, {id: product.id, format: 'json'}, valid_session
+      expect(JSON.parse(response.body)).to eq('product' => product.attributes)
     end
   end
 

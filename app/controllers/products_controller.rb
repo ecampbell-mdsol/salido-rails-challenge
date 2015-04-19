@@ -5,8 +5,12 @@ class ProductsController < ApplicationController
   respond_to :json, except: :edit
 
   def index
-    @products = Product.all
-    respond_with(@products)
+    respond_to do |format|
+      format.html
+      format.json do
+        render json: ProductDatatable.new(view_context, {datatables: params[:draw]})
+      end
+    end
   end
 
   def show
@@ -37,7 +41,7 @@ class ProductsController < ApplicationController
     respond_with(@product)
   end
 
-  PERMITTED_ATTRIBUTES = %i(description endeca_id name price_max price_min price_retail product_type url year)
+  PRODUCT_PARAMS = %i(description endeca_id name price_max price_min price_retail product_type url year)
 
   private
     def set_product
@@ -45,6 +49,6 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.require(:product).permit(PERMITTED_ATTRIBUTES)
+      params.require(:product).permit(PRODUCT_PARAMS)
     end
 end

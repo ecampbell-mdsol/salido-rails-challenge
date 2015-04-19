@@ -21,8 +21,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.9.3)
-      activemodel (>= 3.2)
     activejob (4.2.1)
       activesupport (= 4.2.1)
       globalid (>= 0.3.0)
@@ -42,6 +40,8 @@ GEM
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
+    ajax-datatables-rails (0.3.0)
+      railties (>= 3.1)
     anima (0.2.0)
       abstract_type (~> 0.0.7)
       adamantium (~> 0.1)
@@ -291,7 +291,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers (~> 0.9)
+  ajax-datatables-rails (~> 0.3)
   bootstrap-sass (~> 3.3)
   brakeman (~> 3.0)
   byebug (~> 4.0)
