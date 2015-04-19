@@ -8,11 +8,11 @@ RSpec.describe ProductsController, type: :controller do
   # Product. As you add validations to Product, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    {'name' => 'Red Wine', 'product_type' => 'Wine', 'price_retail' => '10', 'description' => 'House Wine'}
+    {'name' => 'Red Wine', 'product_type' => 'Wine', 'price_retail' => 10, 'description' => 'House Wine'}
   end
 
   let(:invalid_attributes) do
-    {'name' => '', 'product_type' => 'Wine', 'price_retail' => '10', 'description' => 'House Wine'}
+    {'name' => '', 'product_type' => 'Wine', 'price_retail' => 10, 'description' => 'House Wine'}
   end
 
   # This should return the minimal set of values that should be in the session
