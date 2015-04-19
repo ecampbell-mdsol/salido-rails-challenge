@@ -3,11 +3,11 @@ class ProductDatatable < AjaxDatatablesRails::Base
   def_delegators :@view, :safe_join, :link_to, :content_tag, :edit_product_path
 
   def sortable_columns
-    @sortable_columns ||= %w[Product.name Product.endeca_id Product.product_type Product.price_retail]
+    @sortable_columns ||= %w[Product.name Product.oid Product.product_type Product.price_retail]
   end
 
   def searchable_columns
-    @searchable_columns ||= %w[Product.name Product.endeca_id Product.product_type Product.price_retail]
+    @searchable_columns ||= %w[Product.name Product.oid Product.product_type Product.price_retail]
   end
 
   private
@@ -16,7 +16,7 @@ class ProductDatatable < AjaxDatatablesRails::Base
     row_mapper =
       if options[:datatables]
         -> (product) do
-          [markup_for_name(product), product.endeca_id, product.product_type, '$%.2f' % product.price_retail]
+          [markup_for_name(product), product.oid, product.product_type, '$%.2f' % product.price_retail]
         end
       else
         -> (product) { product.attributes }

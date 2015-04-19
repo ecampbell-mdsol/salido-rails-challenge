@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
     respond_with(@product)
   end
 
-  PRODUCT_PARAMS = %i(description endeca_id name price_max price_min price_retail product_type url year)
+  PRODUCT_PARAMS = %i(description name oid price_max price_min price_retail product_type url year)
 
   private
     def set_product
