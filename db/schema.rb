@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419225051) do
+ActiveRecord::Schema.define(version: 20150419232754) do
 
   create_table "products", force: :cascade do |t|
     t.string   "name",         limit: 255
     t.string   "product_type", limit: 255
-    t.decimal  "price_retail",               precision: 10
+    t.decimal  "price_retail",               precision: 30, scale: 2
     t.text     "description",  limit: 65535
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "oid",          limit: 4
-    t.decimal  "price_max",                  precision: 10
-    t.decimal  "price_min",                  precision: 10
+    t.decimal  "price_max",                  precision: 30, scale: 2
+    t.decimal  "price_min",                  precision: 30, scale: 2
     t.string   "url",          limit: 255
     t.string   "year",         limit: 255
   end
