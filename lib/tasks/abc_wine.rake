@@ -13,24 +13,22 @@ namespace :abc_wine do
     number_of_pages.times do |page_number|
       print '.'
       get_product_page(page_number: page_number)['List'].each do |abc_product|
-        unless Product.find_by(oid: abc_product['Id'])
-          begin
-            Product.create!(
-              oid: abc_product['Id'],
-              name: abc_product['Name'],
-              description: abc_product['Description'],
-              url: abc_product['Url'],
-              price_min: abc_product['PriceMin'],
-              price_max: abc_product['PriceMax'],
-              price_retail: abc_product['PriceRetail'],
-              product_type: abc_product['Type'],
-              year: abc_product['Year'],
-            )
-            created += 1
-          rescue StandardError => e
-            puts 'ERROR'
-            puts e
-          end
+        begin
+          Product.create!(
+            oid: abc_product['Id'],
+            name: abc_product['Name'],
+            description: abc_product['Description'],
+            url: abc_product['Url'],
+            price_min: abc_product['PriceMin'],
+            price_max: abc_product['PriceMax'],
+            price_retail: abc_product['PriceRetail'],
+            product_type: abc_product['Type'],
+            year: abc_product['Year'],
+          )
+          created += 1
+        rescue StandardError => e
+          puts 'ERROR'
+          puts e
         end
       end
     end
